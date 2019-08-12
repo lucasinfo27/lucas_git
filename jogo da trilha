@@ -1,0 +1,220 @@
+print('''
+_________________________________________________________________________________
+                 POSIÇÕES                                                        |
+\u24ea----------\u2460----------\u2461                                                        |
+|           |           |                                                        |
+|   \u2462------\u2463------\u2464   |                                                        |
+|   |       |       |   |                                                        |
+|   |   \u2465--\u2466--\u2467   |   |                  JOGO DA TRILHA                        |
+|   |   |       |   |   |                                                        |
+\u2468--\u2469--\u246a       \u246b--\u246c--\u246d                                                        |
+|   |   |       |   |   |                                                        |
+|   |   \u246e--\u246f--\u2470   |   |                 programação                            |
+|   |       |       |   |                                                        |
+|   \u2471------\u2472------\u2473   |                                                        |
+|           |           |                                                        |
+\u3251----------\u3252----------\u3253
+                         Desenvolvido por Lucas R. Santos e Matheus H. Pereira   |
+_________________________________________________________________________________| ''')
+
+      
+def tabuleiro(casas):
+        print('')
+        print('\t %s-----------%s-----------%s' % (casas[0], casas[1], casas[2]))
+        print('\t |           |           |' )
+        print('\t |   %s-------%s-------%s   |' % (casas[3], casas[4], casas[5]))
+        print('\t |   |       |       |   |')
+        print('\t |   |   %s---%s---%s   |   |' % (casas[6], casas[7], casas[8]))
+        print('\t |   |   |       |   |   |')
+        print('\t %s---%s---%s       %s---%s---%s' % (casas[9], casas[10], casas[11], casas[12], casas[13], casas[14]))
+        print('\t |   |   |       |   |   |')
+        print('\t |   |   %s---%s---%s   |   |' % (casas[15], casas[16], casas[17]))
+        print('\t |   |       |       |   |' )
+        print('\t |   %s-------%s-------%s   |' % (casas[18], casas[19], casas[20]))
+        print('\t |           |           |' )
+        print('\t %s----------%s-----------%s' % (casas[21], casas[22], casas[23]))
+        print('')
+        
+casas = ['-','-','-',
+         '-','-','-',
+         '-','-','-',
+         '-','-','-','-','-','-',
+         '-','-','-',
+         '-','-','-',
+         '-','-','-']
+x = 1 
+linha = 0
+p = input('Digite seu nome primeiro jogador !!! ---> ')
+b = input('Digite seu nome segundo jogador !!! ---> ')
+while x < 10:
+    linha = int(input(" %s, Faça sua jogada" % p))
+    if linha < 0 or linha > 23:
+        print('Valor invalido!!!')
+        exit()
+    elif casas[linha] != '-':
+        print('Voce nao pode jogar nessa posiçao!!!, perdeu a vez')
+    else:
+        casas[linha] = '\u26ab'
+        
+        print('')
+        print("\u24ea----------\u2460----------\u2461 ")                                                       
+        print("|           |           |        |      ")                                       
+        print("|   \u2462------\u2463------\u2464   | ")                                                       
+        print("|   |       |       |   |               ")                                         
+        print("|   |   \u2465--\u2466--\u2467   |   |  ")
+        print("|   |   |       |   |   |                 ")                                       
+        print("\u2468--\u2469--\u246a       \u246b--\u246c--\u246d   ")                                                     
+        print("|   |   |       |   |   |                  ")                                      
+        print("|   |   \u246e--\u246f--\u2470   |   |   ")                                         
+        print("|   |       |       |   |              ")                                          
+        print("|   \u2471------\u2472------\u2473   |  ")
+        print("|           |           |               ")
+        print("\u2451----------\u3252----------\u3253  ")
+        print('')
+        
+        tabuleiro(casas)
+
+    if casas[0] == casas[1] == casas[2] == '\u26ab' or\
+        casas[2] == casas[14] == casas[23] == '\u26ab' or\
+        casas[23] == casas[14] == casas[2] == '\u26ab' or\
+        casas[5] == casas[13] == casas[20] == '\u26ab' or\
+        casas[20] == casas[13] == casas[5] == '\u26ab' or\
+        casas[8] == casas[12] == casas[17] == '\u26ab' or\
+        casas[17] == casas[12] == casas[8] == '\u26ab' or\
+        casas[1] == casas[4] == casas[7] == '\u26ab' or\
+        casas[7] == casas[4] == casas[1] == '\u26ab' or\
+        casas[16] == casas[19] == casas[22] == '\u26ab' or\
+        casas[22] == casas[19] == casas[16] == '\u26ab' or\
+        casas[6] == casas[11] == casas[15] == '\u26ab' or\
+        casas[15] == casas[11] == casas[6] == '\u26ab' or\
+        casas[3] == casas[10] == casas[18] == '\u26ab' or\
+        casas[18] == casas[10] == casas[3] == '\u26ab' or\
+        casas[0] == casas[9] == casas[20] == '\u26ab' or\
+        casas[20] == casas[9] == casas[0] == '\u26ab' or\
+        casas[3] == casas[4] == casas[5] == '\u26ab' or\
+        casas[6] == casas[7] == casas[8] == '\u26ab' or\
+        casas[9] == casas[10] == casas[11] == '\u26ab' or\
+        casas[12] == casas[13] == casas[14] == '\u26ab' or\
+        casas[15] == casas[16] == casas[17] == '\u26ab' or\
+        casas[18] == casas[19] == casas[20] == '\u26ab' or\
+        casas[21] == casas[22] == casas[23] == '\u26ab':
+        print("voce pode tirar uma peca do novo jogador")
+        tira1 = int(input('%s digite o numero da peca que vc deseja tirar ---> ' % p))
+        if casas[tira1] == '/u26aa' and casas[tira1] == '-':
+            print('Valor invalido!!!')
+        else:
+            casas[tira1] = '-'   
+            break
+                
+    linha = int(input(" %s, Faça sua jogada" % b))
+    if linha < 0 or linha > 23:
+        print('Valor invalido!!!')
+        exit()
+    elif casas[linha] != '-':
+        print('Voce nao pode jogar nessa posiçao!!!, perdeu a vez')
+    else:
+        casas[linha] = '\u26aa'
+        
+        print('')
+        print("\u24ea----------\u2460----------\u2461 ")                                                       
+        print("|           |           |        |      ")                                       
+        print("|   \u2462------\u2463------\u2464   | ")                                                       
+        print("|   |       |       |   |               ")                                         
+        print("|   |   \u2465--\u2466--\u2467   |   |  ")
+        print("|   |   |       |   |   |                 ")                                       
+        print("\u2468--\u2469--\u246a       \u246b--\u246c--\u246d   ")                                                     
+        print("|   |   |       |   |   |                  ")                                      
+        print("|   |   \u246e--\u246f--\u2470   |   |   ")                                         
+        print("|   |       |       |   |              ")                                          
+        print("|   \u2471------\u2472------\u2473   |  ")
+        print("|           |           |               ")
+        print("\u2451----------\u3252----------\u3253  ")
+        print('')
+
+        tabuleiro(casas)
+
+    if casas[0] == casas[1] == casas[2] == '\u26aa' or\
+        casas[2] == casas[14] == casas[23] == '\u26aa' or\
+        casas[23] == casas[14] == casas[2] == '\u26aa' or\
+        casas[5] == casas[13] == casas[20] == '\u26aa' or\
+        casas[20] == casas[13] == casas[5] == '\u26aa' or\
+        casas[8] == casas[12] == casas[17] == '\u26aa' or\
+        casas[17] == casas[12] == casas[8] == '\u26aa' or\
+        casas[1] == casas[4] == casas[7] == '\u26aa' or\
+        casas[7] == casas[4] == casas[1] == '\u26aa' or\
+        casas[16] == casas[19] == casas[22] == '\u26aa' or\
+        casas[22] == casas[19] == casas[16] == '\u26aa' or\
+        casas[6] == casas[11] == casas[15] == '\u26aa' or\
+        casas[15] == casas[11] == casas[6] == '\u26aa' or\
+        casas[3] == casas[10] == casas[18] == '\u26aa' or\
+        casas[18] == casas[10] == casas[3] == '\u26aa' or\
+        casas[0] == casas[9] == casas[20] == '\u26aa' or\
+        casas[20] == casas[9] == casas[0] == '\u26aa' or\
+        casas[3] == casas[4] == casas[5] == '\u26aa' or\
+        casas[6] == casas[7] == casas[8] == '\u26aa' or\
+        casas[9] == casas[10] == casas[11] == '\u26aa' or\
+        casas[12] == casas[13] == casas[14] == '\u26aa' or\
+        casas[15] == casas[16] == casas[17] == '\u26aa' or\
+        casas[18] == casas[19] == casas[20] == '\u26aa' or\
+        casas[21] == casas[22] == casas[23] == '\u26aa':
+        print("voce pode tirar uma peca do novo jogador")
+        tira2 = int(input('%s digite o numero da peca que vc deseja tirar ---> ' % b))
+        if casas[tira2] == '/u26aa' and casas[tira2] == '-':
+            print('Valor invalido!!!')
+        else:
+            casas[tira1] = '-'
+            break
+        x += 1
+
+print("VOCES PODEN FAZER AS JOGADAS")
+
+w = 0
+while w < 100:
+  procura1 = str(tabuleiro(casas)).find('\u26ab')
+  if procura1 == 2:
+      print('O jogador %s venceu!!!' % b)   
+      exit()
+
+  m1 = int(input('digite que peça voce quer mover "voce so pode mover sobre a linha"'))
+  if m1 == '\u26ab':
+    m2 = int(input('digite para que posicao voce quer movela"somente em sima da linha'))
+  elif casas[m2] == '-' and casas[m2] != '\u26aa':
+    casas[m2] = '\u26ab'
+    casas[m1] = '-'
+  else:
+    print("jogada invalida tente novamente !!")
+    m1 = int(input('digite que peça voce quer mover "voce so pode mover sobre a linha"'))
+  if m1 == '\u26ab':
+    m2 = int(input('digite para que posicao voce quer movela"somente em sima da linha'))
+  elif casas[m2] == '-':
+    casas[m2] = '\u26ab'
+    casas[m1] = '-'
+  qualquer1 = str(tabuleiro(casas)).find('\u26aa')
+  if qualquer1 >= 3:
+    print("%s voce pode jogar em qualquer posisao que nao esteja ocupada" % p)
+
+              
+  procura2 = str(tabuleiro(casas)).find('\u26aa')
+  if procura2 == 2:
+      print('O jogador %s venceu!!!' % p)
+      print('O jogador %s venceu!!!' % b)    
+      exit()
+  
+   m3 = int(input('digite que peça voce quer mover "voce so pode mover sobre a linha"'))
+  if m3 == '\u26ab':
+    m4 = int(input('digite para que posicao voce quer movela"somente em sima da linha'))
+  elif casas[m4] == '-' and casas[m4] != '\u26ab':
+    casas[m4] = '\u26aa'
+    casas[m3] = '-'
+  else:
+    m3 = int(input('digite que peça voce quer mover "voce so pode mover sobre a linha"'))
+  if m3 == '\u26ab':
+    m4 = int(input('digite para que posicao voce quer movela"somente em sima da linha'))
+  elif casas[m4] == '-' and casas[m4] != '\u26ab':
+    casas[m4] = '\u26aa'
+    casas[m3] = '-'
+
+    qualquer2 = str(tabuleiro(casas)).find('\u26aa')
+    if qualquer2 >= 3:
+      print("%s voce pode jogar em qualquer posisao que nao esteja ocupada" % b)
+  x += 1
